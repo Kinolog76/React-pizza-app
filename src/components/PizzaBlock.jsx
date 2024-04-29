@@ -16,7 +16,7 @@ function PizzaBlock(props) {
             <li
               onClick={() => setActiveType(index)}
               className={activeType === index ? "active" : ""}
-              key={index}>
+              key={typeId}>
               {typeNames[typeId]}
             </li>
           ))}
@@ -26,7 +26,7 @@ function PizzaBlock(props) {
             <li
               onClick={() => setActiveSize(index)}
               className={activeSize === index ? "active" : ""}
-              key={index}>
+              key={size}>
               {size} см.
             </li>
           ))}

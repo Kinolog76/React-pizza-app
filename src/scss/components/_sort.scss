@@ -86,14 +86,17 @@
     justify-content: space-around;
   }
 }
+
 @media (max-width: 400px) {
   .content .content__top {
     align-items: start;
   }
+
   .sort__popup {
     left: 0px;
     margin-top: 25px;
   }
+
   .categories ul {
     flex-direction: column;
   }
