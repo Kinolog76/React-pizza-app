@@ -4,6 +4,7 @@ import Categories from "./components/Categories";
 import Sort from "./components/Sort";
 import PizzaBlock from "./components/PizzaBlock";
 import "./scss/app.scss";
+import pizzasData from "./assets/pizza.json";
 
 function App() {
   return (
@@ -18,12 +19,9 @@ function App() {
             </div>
             <h2 className="content__title">Все пиццы</h2>
             <div className="content__items">
-              <PizzaBlock title="Чизбургер-пицца" price="395" image="./img/pizza.jpg"/>
-              <PizzaBlock title="Чилентано-пицца" price="420" image="./img/pizza.jpg"/>
-              <PizzaBlock title="Пепперони-пицца" price="415" image="./img/pizza.jpg"/>
-              <PizzaBlock title="Вегетарианская-пицца" price="360" image="./img/pizza.jpg"/>
-              <PizzaBlock title="Сырная-пицца" price="425" image="./img/pizza.jpg"/>
-              <PizzaBlock title="Классическая-пицца" price="550" image="./img/pizza.jpg"/>
+              {pizzasData.map((item) => (
+                <PizzaBlock {...item} />
+              ))}
             </div>
           </div>
         </div>

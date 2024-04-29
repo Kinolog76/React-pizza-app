@@ -1,0 +1,102 @@
+[
+  {
+    "id": 0,
+    "imageUrl": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTzZAyQtd6dyMRgp81aVEoSLccyTTxCDBmlaYNDGYwFRZUeUDamsvBIK_BRYzjdHwntxKmiCj1eyaAa8QCdsDjpXkHYv_lRq__Xvii94lR689X9rYRLWPf5OA&usqp=CAE",
+    "title": "Пепперони Фреш с перцем",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 803,
+    "category": 0,
+    "rating": 4
+  },
+  {
+    "id": 1,
+    "imageUrl": "https://menu-store.ru/wp-content/uploads/2021/06/belaya-sous-ranch-1.jpg",
+    "title": "Сырная",
+    "types": [0],
+    "sizes": [26, 40],
+    "price": 245,
+    "category": 0,
+    "rating": 6
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://menu-store.ru/wp-content/uploads/2021/06/s-vetchinoj-min-1.jpg",
+    "title": "Цыпленок барбекю",
+    "types": [0],
+    "sizes": [26, 40],
+    "price": 295,
+    "category": 1,
+    "rating": 4
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://menu-store.ru/wp-content/uploads/2021/06/pepperoni-min-1.jpg",
+    "title": "Кисло-сладкий цыпленок",
+    "types": [1],
+    "sizes": [26, 30, 40],
+    "price": 275,
+    "category": 2,
+    "rating": 2
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://menu-store.ru/wp-content/uploads/2021/06/myasnoj-maks-myasnaya-min-1.jpg",
+    "title": "Чизбургер-пицца",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 415,
+    "category": 3,
+    "rating": 8
+  },
+  {
+    "id": 5,
+    "imageUrl": "https://menu-store.ru/wp-content/uploads/2021/06/margarita-min-1.jpg",
+    "title": "Крэйзи пепперони",
+    "types": [0],
+    "sizes": [30, 40],
+    "price": 580,
+    "category": 2,
+    "rating": 2
+  },
+  {
+    "id": 6,
+    "imageUrl": "https://menu-store.ru/wp-content/uploads/2021/06/kalyari-min-1.jpg",
+    "title": "Пепперони",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 675,
+    "category": 1,
+    "rating": 9
+  },
+  {
+    "id": 7,
+    "imageUrl": "https://menu-store.ru/wp-content/uploads/2021/06/griby-i-shpinat-min-1.jpg",
+    "title": "Маргарита",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 450,
+    "category": 4,
+    "rating": 10
+  },
+  {
+    "id": 8,
+    "imageUrl": "https://menu-store.ru/wp-content/uploads/2021/06/vetchina-i-griby-min-1.jpg",
+    "title": "Четыре сезона",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 395,
+    "category": 5,
+    "rating": 10
+  },
+  {
+    "id": 9,
+    "imageUrl": "https://menu-store.ru/wp-content/uploads/2021/06/belaya-sous-ranch-min-1.jpg",
+    "title": "Овощи и грибы 🌱",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 285,
+    "category": 5,
+    "rating": 7
+  }
+]
