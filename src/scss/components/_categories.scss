@@ -1,9 +1,14 @@
 @import '../variables';
 
 .categories {
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  margin-right: 20px;
   ul {
     display: flex;
-    flex-wrap: wrap;
 
     li {
       background-color: #f9f9f9;

@@ -47,11 +47,24 @@
         }
 
         &.active {
+          text-wrap: nowrap;
           font-weight: bold;
           color: $orange;
         }
       }
     }
+  }
+}
+
+@media (max-width: 980px) {
+  .content .content__top {
+    flex-direction: column-reverse;
+    row-gap: 20px;
+    overflow: hidden;
+  }
+  .categories {
+    max-width: 100%;
+    margin-right: 0;
   }
 }
 
@@ -88,16 +101,8 @@
 }
 
 @media (max-width: 400px) {
-  .content .content__top {
-    align-items: start;
-  }
-
   .sort__popup {
     left: 0px;
     margin-top: 25px;
-  }
-
-  .categories ul {
-    flex-direction: column;
   }
 }
