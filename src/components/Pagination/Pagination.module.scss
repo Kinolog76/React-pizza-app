@@ -1,0 +1,42 @@
+.root {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+
+  :global {
+    .selected a {
+      background-color: #fe5f1e !important;
+
+
+      color: #fff;
+
+    }
+
+    .disabled a {
+      pointer-events: none;
+      cursor: default;
+      border: 1px solid rgba(199, 199, 199, 0.4784313725);
+      background-color: #a5a5a547;
+    }
+  }
+
+  & a {
+    padding-top: 2px;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fe5f1e;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #fe5d1e8e;
+    }
+  }
+
+}
