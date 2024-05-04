@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function PizzaBlock(props) {
   const [activeType, setActiveType] = useState(0);
@@ -7,7 +8,7 @@ function PizzaBlock(props) {
   const typeNames = ["Тонкое", "Традиционное"];
 
   return (
-    <div className="pizza-block">
+    <Link to={`/pizza/${props.id}`} state={props.id} className="pizza-block">
       <img className="pizza-block__image" src={props.imageUrl} alt={props.title} />
       <h4 className="pizza-block__title">{props.title}</h4>
       <div className="pizza-block__selector">
@@ -46,7 +47,7 @@ function PizzaBlock(props) {
           </button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

@@ -1,6 +1,9 @@
 import styles from "./Search.module.scss";
+import { useContext } from "react";
+import { SearchContext } from "../../App";
 
-function Search({ searchValue, setSearchValue }) {
+function Search() {
+  const { searchValue, setSearchValue } = useContext(SearchContext);
   return (
     <div className={styles.root}>
       <div className={styles.inputBox}>
@@ -10,11 +13,11 @@ function Search({ searchValue, setSearchValue }) {
           type="text"
           placeholder="Поиск пиццы..."
         />
-        <span onClick={() => setSearchValue('')} className={searchValue != '' ? styles.clear : ''}>
+        <span onClick={() => setSearchValue("")} className={searchValue != "" ? styles.clear : ""}>
           ✕
         </span>
       </div>
-      <button >
+      <button>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

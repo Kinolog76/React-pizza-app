@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import logoSvg from "../assets/img/pizza-logo.svg";
 import Search from "./Search";
 
-function Header({ searchValue, setSearchValue }) {
+function Header() {
   return (
     <div className="header">
       <div className="container">
@@ -52,7 +52,7 @@ function Header({ searchValue, setSearchValue }) {
         </div>
       </div>
       <div className="container">
-        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+        <Search />
       </div>
     </div>
   );
