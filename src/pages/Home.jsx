@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
+import { setCategoryId } from "../redux/slices/filterSlice";
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import PizzaBlock from "../components/PizzaBlock";
@@ -7,15 +9,17 @@ import Skeleton from "../components/PizzaBlock/Skeleton.jsx";
 import Pagination from "../components/Pagination";
 
 function Home({ searchValue }) {
+  const dispatch = useDispatch();
+  const { categoryId, sort } = useSelector((state) => state.filterSlice);
+  const sortType = sort;
+
   const [pizzasData, setPizzasData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setcurrentPage] = useState(1);
-  const [categoryId, setCategoryId] = useState(0);
-  const [sortType, setSortType] = useState({
-    name: "популярности ↓",
-    sortProperty: "rating",
-    order: "desc",
-  });
+
+  const onChangeCategory = (id) => {
+    dispatch(setCategoryId(id));
+  };
 
   useEffect(() => {
     const categoryQuery = categoryId > 0 ? `category=${categoryId}` : "";
@@ -36,7 +40,7 @@ function Home({ searchValue }) {
       .catch((error) => console.error("Ошибка при загрузке данных:", error));
   }, [categoryId, sortType, currentPage, searchValue]);
 
-  const skeletons = [...new Array(4)].map((item, index) => <Skeleton key={index} />);
+  const skeletons = [...new Array(8)].map((item, index) => <Skeleton key={index} />);
   const pizzas = pizzasData
     .filter((obj) => {
       return obj.title.toLowerCase().includes(searchValue.toLowerCase());
@@ -46,8 +50,8 @@ function Home({ searchValue }) {
   return (
     <>
       <div className="content__top">
-        <Categories value={categoryId} onChangeCategory={(index) => setCategoryId(index)} />
-        <Sort value={sortType} onChangeSort={(index) => setSortType(index)} />
+        <Categories value={categoryId} onChangeCategory={onChangeCategory} />
+        <Sort />
       </div>
       <h2 className="content__title">{pizzas.length > 0 ? "Все пиццы" : "Пиццы не найдены"}</h2>
       <div className="content__items">{isLoading ? skeletons : pizzas.length > 0 && pizzas}</div>

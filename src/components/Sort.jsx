@@ -1,18 +1,24 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setSort } from "../redux/slices/filterSlice";
 
-function Sort({ value, onChangeSort }) {
+const sortType = [
+  { name: "популярности ↓", sortProperty: "rating", order: "desc" },
+  { name: "популярности ↑", sortProperty: "rating", order: "asc" },
+  { name: "цене (9-1)", sortProperty: "price", order: "desc" },
+  { name: "цене (1-9)", sortProperty: "price", order: "asc" },
+  { name: "алфавиту (A-Я)", sortProperty: "title", order: "asc" },
+  { name: "алфавиту (Я-А)", sortProperty: "title", order: "desc" },
+];
+
+function Sort() {
+  const dispatch = useDispatch();
+  const sort = useSelector((state) => state.filterSlice.sort);
+
   const [open, setOpen] = useState(false);
-  const sortType = [
-    { name: "популярности ↓", sortProperty: "rating", order: "desc" },
-    { name: "популярности ↑", sortProperty: "rating", order: "asc" },
-    { name: "цене (9-1)", sortProperty: "price", order: "desc" },
-    { name: "цене (1-9)", sortProperty: "price", order: "asc" },
-    { name: "алфавиту (A-Я)", sortProperty: "title", order: "asc" },
-    { name: "алфавиту (Я-А)", sortProperty: "title", order: "desc" },
-  ];
 
-  function selectedSortItem(index) {
-    onChangeSort(index);
+  function selectedSortItem(obj) {
+    dispatch(setSort(obj));
     setOpen(false);
   }
 
@@ -31,7 +37,7 @@ function Sort({ value, onChangeSort }) {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={() => setOpen(!open)}>{value.name}</span>
+        <span onClick={() => setOpen(!open)}>{sort.name}</span>
       </div>
       {open && (
         <div className="sort__popup">
@@ -39,7 +45,7 @@ function Sort({ value, onChangeSort }) {
             {sortType.map((obj, index) => (
               <li
                 onClick={() => selectedSortItem(obj)}
-                className={value.name === obj.name ? "active" : ""}
+                className={sort.name === obj.name ? "active" : ""}
                 key={index}>
                 {obj.name}
               </li>

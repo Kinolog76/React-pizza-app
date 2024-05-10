@@ -14,9 +14,11 @@
     b {
       margin-right: 8px;
       width: max-content;
+      text-wrap: nowrap;
     }
 
     span {
+      text-wrap: nowrap;
       color: $orange;
       border-bottom: 1px dashed $orange;
       cursor: pointer;
@@ -62,6 +64,7 @@
     row-gap: 20px;
     overflow: hidden;
   }
+
   .categories {
     max-width: 100%;
     margin-right: 0;
