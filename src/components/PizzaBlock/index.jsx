@@ -8,9 +8,11 @@ function PizzaBlock(props) {
   const typeNames = ["Тонкое", "Традиционное"];
 
   return (
-    <Link to={`/pizza/${props.id}`} state={props.id} className="pizza-block">
-      <img className="pizza-block__image" src={props.imageUrl} alt={props.title} />
-      <h4 className="pizza-block__title">{props.title}</h4>
+    <div className="pizza-block">
+      <Link to={`/pizza/${props.id}`} state={props.id} className="">
+        <img className="pizza-block__image" src={props.imageUrl} alt={props.title} />
+        <h4 className="pizza-block__title">{props.title}</h4>
+      </Link>
       <div className="pizza-block__selector">
         <ul>
           {props.types.map((typeId, index) => (
@@ -47,7 +49,7 @@ function PizzaBlock(props) {
           </button>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 
