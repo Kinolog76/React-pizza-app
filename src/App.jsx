@@ -18,7 +18,7 @@ function App() {
     <>
       <SearchContext.Provider value={{ searchValue, setSearchValue }}>
         <Routes>
-          <Route path="React-pizza-app" element={<Layout />}>
+          <Route path="/" element={<Layout />}>
             <Route index element={<Home searchValue={searchValue} />} />
             <Route path="cart" element={<Cart />} />
             <Route path="pizza/:id" component={Pizza} element={<Pizza />} />

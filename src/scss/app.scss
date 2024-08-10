@@ -2,11 +2,15 @@
 @import 'libs/normalize';
 
 @import 'components/all';
-
+* {
+  scroll-behavior: smooth;
+}
 body {
   background-color: $background;
 }
-
+html {
+  overflow-y: scroll;
+}
 .pizza-page {
   display: flex;
   flex-direction: column;
