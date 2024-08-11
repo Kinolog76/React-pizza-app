@@ -1,11 +1,30 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, removeItem } from "../../redux/slices/cartSlice";
 
 function PizzaBlock(props) {
+  const dispatch = useDispatch();
+  const { items } = useSelector((state) => state.cartSlice);
   const [activeType, setActiveType] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
-
   const typeNames = ["Тонкое", "Традиционное"];
+  
+  const onClickAdd = () => {
+    const item = {
+      id: props.id,
+      title: props.title,
+      price: props.price,
+      imageUrl: props.imageUrl,
+      type: typeNames[activeType],
+      size: props.sizes[activeSize],
+    };
+    dispatch(addItem(item));
+  };
+
+  const onClickRemove = () => {
+    dispatch(removeItem(props.id));
+  };
 
   return (
     <div className="pizza-block">
@@ -38,13 +57,17 @@ function PizzaBlock(props) {
       <div className="pizza-block__bottom">
         <div className="pizza-block__price-box">
           <div className="pizza-block__price">от {props.price} ₽</div>
-          <i>0</i>
+          <i>
+            {items
+              .filter((item) => item.id === props.id)
+              .reduce((sum, item) => sum + item.count, 0)}
+          </i>
         </div>
         <div className="pizza-block__buttons">
-          <button className="button button--outline button--add">
+          <button className="button button--outline button--add" onClick={onClickRemove}>
             <span>Убрать</span>
           </button>
-          <button className="button button--outline button--add">
+          <button className="button button--outline button--add" onClick={onClickAdd}>
             <span>Добавить</span>
           </button>
         </div>
