@@ -85,7 +85,7 @@ function Home({ searchValue }) {
       navigate(`?${queryString}`);
     }
     isMounted.current = true;
-  }, [categoryId, sortType, currentPage]);
+  }, [categoryId, sortType, currentPage, ]);
 
   const skeletons = [...new Array(8)].map((item, index) => <Skeleton key={index} />);
   const pizzas = pizzasData

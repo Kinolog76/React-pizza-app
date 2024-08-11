@@ -1,11 +1,17 @@
 import styles from "./Search.module.scss";
-import { useContext, useCallback, useState } from "react";
+import { useContext, useCallback, useState, useRef, useEffect } from "react";
 import { SearchContext } from "../../App";
 import debounce from "lodash.debounce";
-
+import { useLocation } from "react-router-dom"; 
 function Search() {
   const [value, setValue] = useState("");
   const { searchValue, setSearchValue } = useContext(SearchContext);
+  const searchRef = useRef(null);
+  const location = useLocation(); 
+
+  useEffect(() => {
+    setValue(searchValue);
+  }, [searchValue]);
 
   const inputDebounce = useCallback(
     debounce((str) => {
@@ -13,16 +19,33 @@ function Search() {
     }, 400),
     [],
   );
+
   const onChangeInput = (e) => {
     setValue(e.target.value);
     inputDebounce(e.target.value);
   };
 
+  if (location.pathname === "/cart") {
+    return null;
+  }
+
   return (
     <div className={styles.root}>
       <div className={styles.inputBox}>
-        <input value={value} onChange={onChangeInput} type="text" placeholder="Поиск пиццы..." />
-        <span onClick={() => setSearchValue("")} className={searchValue != "" ? styles.clear : ""}>
+        <input
+          ref={searchRef}
+          value={value}
+          onChange={onChangeInput}
+          type="text"
+          placeholder="Поиск пиццы..."
+        />
+        <span
+          onClick={() => {
+            setSearchValue("");
+            setValue("");
+            searchRef.current.value = "";
+          }}
+          className={searchValue != "" ? styles.clear : ""}>
           ✕
         </span>
       </div>

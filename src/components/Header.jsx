@@ -2,18 +2,23 @@ import { Link } from "react-router-dom";
 import logoSvg from "/public/img/pizza-logo.svg";
 import Search from "./Search";
 import { useSelector } from "react-redux";
+import { useContext, useState } from "react";
+import { SearchContext } from "../App";
 
 function Header() {
   const { totalPrice, items } = useSelector((state) => state.cartSlice);
-  
-  console.log(totalPrice);
-  console.log(items);
+  const { setSearchValue } = useContext(SearchContext);
+  const [value, setValue] = useState("");
+
+  const handleLogoClick = () => {
+    setSearchValue("");
+  };
 
   return (
     <div className="header">
       <div className="container">
         <Link to="/">
-          <div className="header__logo">
+          <div className="header__logo" onClick={handleLogoClick}>
             <img width="38" src={logoSvg} alt="Pizza logo" />
             <div>
               <h1>React Pizza</h1>
