@@ -6,9 +6,7 @@ import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
 import Pizza from "./pages/Pizza";
 import Layout from "./components/Layout";
-
 import "./scss/app.scss";
-
 export const SearchContext = createContext("");
 
 function App() {
